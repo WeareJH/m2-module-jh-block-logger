@@ -22,3 +22,6 @@ Note: As these repositories are currently private and not available via a public
 ## Using the module
 
 Just enable it, then clear caches and look in the console/element inspector.
+
+
+![Imgur](https://i.imgur.com/B3yW9es.png)
