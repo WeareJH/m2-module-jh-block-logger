@@ -1,0 +1,21 @@
+{
+    "name": "wearejh/m2-module-block-logger",
+    "description": "Template/Block hints in the console.",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "shaneo@wearejh.com",
+            "name": "Shane Osbourne"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Selco\\Build\\": ""
+        }
+    }
+}

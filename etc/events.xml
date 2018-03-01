@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="core_layout_render_element">
+		<observer instance="Jh\BlockLogger\Observer\Core\LayoutRenderElement" name="jh_block_logger_observer_core_layoutrenderelement_core_layout_render_element"/>
+	</event>
+</config>

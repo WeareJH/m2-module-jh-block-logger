@@ -1,0 +1,56 @@
+<script>
+    (function(window, document) {
+        const x = document.evaluate(
+            '//comment()',
+            document,
+            null,
+            XPathResult.ANY_TYPE,
+            null
+        );
+
+        let comment = x.iterateNext();
+        let lastElementAdded;
+
+        const stack = [];
+        const elemstack = [];
+
+        function push(element) {
+            const parent = elemstack[elemstack.length-1]
+                ? elemstack[elemstack.length-1].children
+                : stack;
+            parent.push(element);
+            lastElementAdded = element;
+        }
+
+        const start = /^BLOCK_START (.+?)$/;
+        const end = /^BLOCK_END (.+?)$/;
+        const template = /^TEMPLATE (.+?)$/;
+
+        while (comment) {
+            const text = comment.textContent.trim();
+            if (start.test(text)) {
+                const parts = text.match(start);
+                const elem = {
+                    block: parts[1],
+                    children: []
+                };
+                push(elem);
+                elemstack.push(elem);
+            }
+            if (end.test(text)) {
+                const last = elemstack.pop();
+            }
+            if (template.test(text)) {
+                const parts = text.match(template);
+                if (lastElementAdded) {
+                    lastElementAdded.element = comment.nextElementSibling;
+                    lastElementAdded.template = parts[1];
+                }
+            }
+            comment = x.iterateNext();
+        }
+
+        console.log('Blocks on this page', stack);
+
+    })(window, document);
+</script>
