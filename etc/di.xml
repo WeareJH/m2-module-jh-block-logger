@@ -3,4 +3,6 @@
     <type name="Magento\Framework\View\Layout">
         <plugin name="block-logger" type="Jh\BlockLogger\Layout\Logger" />
     </type>
+
+    <preference for="Jh\BlockLogger\Api\View\Element\AnnotatorInterface" type="Jh\BlockLogger\Framework\View\Element\Annotator" />
 </config>
