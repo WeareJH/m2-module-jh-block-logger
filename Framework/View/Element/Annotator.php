@@ -35,6 +35,7 @@ class Annotator implements AnnotatorInterface
 
         if ($block instanceof Template) {
             $rawData['template'] = $block->getTemplate();
+            $rawData['template_file'] = $block->getTemplateFile();
         }
 
         if ($block instanceof AbstractBlock) {
