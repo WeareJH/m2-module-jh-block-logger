@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Jh\BlockLogger\Framework\View\Element;
 
 use Jh\BlockLogger\Api\View\Element\AnnotatorInterface;
+use Magento\Framework\Escaper;
 use Magento\Framework\View\Element\AbstractBlock;
 use Magento\Framework\View\Element\BlockInterface;
 use Magento\Framework\View\Element\Template;
@@ -17,6 +18,17 @@ use Magento\Framework\View\Element\Template;
  */
 class Annotator implements AnnotatorInterface
 {
+    /**
+     * @var Escaper
+     */
+    private $escaper;
+
+    public function __construct(
+        Escaper $escaper
+    ) {
+        $this->escaper = $escaper;
+    }
+
     /**
      * Annotate a block's output.
      *
@@ -60,6 +72,8 @@ HTML;
                 $result[$key] = $this->prepareArgs($value);
             } else if (\is_object($value) && !($value instanceof \JsonSerializable)) {
                 $result[$key] = get_class($value);
+            } else if (\is_string($value)) {
+                $result[$key] = $this->escaper->escapeHtml($value);
             } else { // scalar
                 $result[$key] = $value;
             }
