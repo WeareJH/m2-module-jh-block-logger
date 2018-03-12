@@ -3,13 +3,26 @@
 ## Installation
 This module is installable via `Composer`.
 
-- via composer CLI
+## Add repository
+
+```
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "git@github.com:WeareJH/m2-module-jh-block-logger.git"
+    }
+]
+```
+
+### via composer CLI
+
 ```
 $ cd project-root
 $ ./composer.phar require "wearejh/m2-module-jh-block-logger:dev-master"
 ```
 
-- adding to dev dependencies in composer.json
+### adding to dev dependencies in composer.json
+
 ```json
     "require-dev": {
         "wearejh/m2-module-jh-block-logger": "dev-master"
