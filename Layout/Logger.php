@@ -48,13 +48,13 @@ class Logger
         $output = $proceed($name);
 
         switch ($type) {
-            case 'block':
-                return $this->annotator->annotateBlock($name, $output, $subject->getBlock($name));
             case 'container':
                 return $this->annotator->annotateContainer($name, $output);
             case 'ui_component':
                 return $this->annotator->annotateUiComponent($name, $output);
+            case 'block':
             default:
+                // 'block' handled by plugin around BlockInterface
                 return $output;
         }
     }
