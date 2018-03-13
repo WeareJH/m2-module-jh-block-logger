@@ -1,6 +1,6 @@
 <?php
 
-namespace Jh\BlockLogger\Framework\View\Element
+namespace Jh\BlockLogger\Framework\View\Element;
 
 use Jh\BlockLogger\Api\View\Element\AnnotatorInterface;
 use Magento\Framework\View\Element\AbstractBlock;
@@ -31,10 +31,10 @@ class BlockInterfacePlugin
         \Closure $proceed
     ) {
         $result = $proceed();
-        $name = '{{unknown block}}';
+        $name = 'unknown.block';
 
         if ($subject instanceof AbstractBlock) {
-            $name = $subject->getNameInLayout();
+            $name = $subject->getNameInLayout() ?? $name;
         }
 
         return $this->annotator->annotateBlock(
