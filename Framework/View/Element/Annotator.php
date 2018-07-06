@@ -40,7 +40,7 @@ class Annotator implements AnnotatorInterface
     public function annotateBlock(string $name, string $output, BlockInterface $block)
     {
         if (empty($output)) {
-            return null;
+            return $output;
         }
 
         $rawData = [
