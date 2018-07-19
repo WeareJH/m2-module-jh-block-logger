@@ -47,6 +47,10 @@ class Logger
         $type = $this->getType($subject, $name);
         $output = $proceed($name);
 
+        if (empty($output)) {
+            return $output;
+        }
+
         switch ($type) {
             case 'container':
                 return $this->annotator->annotateContainer($name, $output);
