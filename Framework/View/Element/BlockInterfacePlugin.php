@@ -39,7 +39,7 @@ class BlockInterfacePlugin
 
         return $this->annotator->annotateBlock(
             $name,
-            $result ?: '',
+            $result ?? '',
             $subject
         );
     }
