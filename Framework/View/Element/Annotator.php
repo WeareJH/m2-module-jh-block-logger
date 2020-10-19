@@ -37,7 +37,7 @@ class Annotator implements AnnotatorInterface
      * @param BlockInterface $block
      * @return string
      */
-    public function annotateBlock(string $name, string $output, BlockInterface $block)
+    public function annotateBlock(string $name, string $output = null, BlockInterface $block)
     {
         if (empty($output)) {
             return $output;
